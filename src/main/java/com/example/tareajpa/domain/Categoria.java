@@ -1,9 +1,6 @@
 package com.example.tareajpa.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,6 +22,6 @@ public class Categoria {
 
     private String titulo;
 
-    @ManyToMany(mappedBy = "categorias")
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Pelicula> peliculas = new HashSet<>();
 }
